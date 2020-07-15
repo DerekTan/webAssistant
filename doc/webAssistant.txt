@@ -1,0 +1,101 @@
+*webAssistant.txt*  A tool to speed up Web Page design
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                   |webAssistant-introduction|
+ 2. Installation                                   |webAssistant-installation|
+ 3. Configuration                                 |webAssistant-configuration|
+ 4. Command                                             |webAssistant-command|
+ 5. Keymaps                                             |webAssistant-keymaps|
+ 6. Credits                                             |webAssistant-credits|
+ 7. References                                       |webAssistant-references|
+
+===============================================================================
+                                                   *webAssistant-introduction*
+Introduction ~
+
+This vim Plugin is used to generate html/javascript codes, so that you can 
+focus on the logic but not typing.
+
+===============================================================================
+                                                   *webAssistant-installation*
+Installation ~
+
+copy the plugin in you vim plugin directory, such as:
+    vimfiles\pack\plugins\start\
+
+vim-plug:
+>
+  Plug 'DerekTan/webAssistant'
+<
+===============================================================================
+                                                        *webAssistant-command*
+Introduction ~
+
+1. Generate Common Command Set
+    key: <Leader>wgc
+    example: 
+            {
+Cursor Line ==> elementId: 'Scale_TypeAnalog_Button_Set',
+            },
+            {
+                elementId: 'Scale_TypeAnalog_Input_Name',
+                    statusAction: [
+                        {
+                            eventType: 'BIsclID',
+                        },
+                    ],
+            },
+            {
+                elementId: 'Scale_TypeAnalog_Select_LCType',
+                    statusAction: [
+                        {
+                            eventType: 'LcType',
+                        },
+                    ],
+End Line ==>},
+
+    usage:
+        1) Put your curson on the cursor line, and then press the keys <Leader>wgc
+        2) vim will waiting for your input of the end line, please input a line 
+           number which is the end of the last elementId.
+        3) Then the 'Common Command Set' eventHandler will be generated
+
+2. Generate status Action
+    key: <Leader>wgs
+    example:
+'Scale_TypePowercell_Input_Name',BIsclID
+'Scale_TypePowercell_Input_ActiveNum',LcNum
+
+    usage:
+        1) Input the elementId and the eventId, seperate with ','
+        2) Select these lines and press the keys <Leader>wgs
+        3) Then the default status actions will be generated
+
+3. Generate the options for <select> element
+    key: <Leader>wgo
+    example:
+
+    value1 - descript1
+    value2 - descript2
+
+    usage:
+        1) Input the value and the description, seperate with '-'
+        2) Select these lines and press the keys <Leader>wgo
+        3) Then the options will be generated
+
+4.  Collect IDs
+    key: <Leader>wci
+
+    1) Select several lines in a file - usaually an .html file
+    2) Press the keys <Leader>wci
+    3) All the IDs will be copy to vim default clipboard
+
+===============================================================================
+                                                        *webAssistant-keymaps*
+Keymaps ~
+ <Leader>wgc
+ <Leader>wgs
+ <Leader>wgo
+ <Leader>wci
